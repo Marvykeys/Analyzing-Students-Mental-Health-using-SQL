@@ -1,4 +1,4 @@
-# Analyzing-Students-Mental-Health-using-SQL
+# :chart_with_upwards_trend: Analyzing-Students-Mental-Health-using-SQL :chart_with_downwards_trend:
 
 Does going to university in a different country affect your mental
 health? A Japanese international university surveyed its students in
@@ -34,6 +34,8 @@ I will be doing the following exploratory analysis:
 -   Summarize the data for international students
 -   See if length of stay impacts the test scores
 
+ #
+
 **First, lets explore the whole dataset to better understand the data we
 will be working with.**
 
@@ -45,6 +47,8 @@ LIMIT 10;
 
 <img width="600" alt="Analysing students mental health 1" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/a9c8d686-1a54-4c89-922f-37d24d8780e1">
 
+ #
+
 **We count the number of records in the dataset to confirm we have the
 expected number of records, then see how many records we have for each
 student type.**
@@ -55,6 +59,9 @@ SELECT COUNT(*) AS total_records,
 FROM students;
 ```
 
+<img width="600" alt="Analysing students mental health 2" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/09b99466-9d74-4658-9978-3ebec3e101a6">
+
+ #
 
 **We find out out the unique student types available on the dataset and
 explore the data for each student type**
@@ -66,6 +73,7 @@ WHERE inter_dom = 'Dom'
 LIMIT 10;
 ```
 
+<img width="600" alt="Analysing students mental health 3" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/4f21b812-d29f-460b-9eaf-a70350fdc3b8">
 
 ``` python
 SELECT *
@@ -73,6 +81,10 @@ FROM students
 WHERE inter_dom = 'Inter'
 LIMIT 10;
 ```
+
+<img width="600" alt="Analysing students mental health 4" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/da51e4ad-3335-4df4-8359-180b3b9d001f">
+
+ #
 
 **We Calculate the summary statistics of the diagnostic tests for all
 students**
@@ -89,6 +101,10 @@ SELECT MIN(todep) AS min_phq,
 	   ROUND(AVG(toas),2) AS avg_as
 FROM students;
 ```
+
+<img width="600" alt="Analysing students mental health 5" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/c16f14c3-3634-42bc-816b-84e3524f01e5">
+
+ #
 
 **Lets filter for only International Students**
 
@@ -107,6 +123,10 @@ WHERE inter_dom = 'Inter'
 GROUP BY inter_dom;
 ```
 
+<img width="600" alt="Analysing students mental health 6" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/5a945bfa-b4a6-4498-b67f-102296e03e91">
+
+ #
+
 **how does length of stay of an international student impact the average
 diagnostic scores**
 
@@ -120,3 +140,6 @@ WHERE inter_dom = 'Inter'
 GROUP BY stay
 ORDER BY stay DESC;
 ```
+
+<img width="600" alt="Analysing students mental health 7" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/dfb88db8-6843-4279-874b-fcb94e227099">
+
