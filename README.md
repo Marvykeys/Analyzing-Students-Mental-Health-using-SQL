@@ -6,7 +6,9 @@ health? A Japanese international university surveyed its students in
 several ethical and regulatory boards.
 
 The study found that international students have a higher risk of mental
-health difficulties than the general population. I explore the `students`
+health difficulties than the general population. 
+
+I explore the `students`
 data using PostgreSQL to find out if this is true and see if the length
 of stay is a contributing factor.
 
