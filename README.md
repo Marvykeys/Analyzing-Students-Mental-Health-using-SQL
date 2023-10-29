@@ -1,7 +1,6 @@
 # :chart_with_upwards_trend: Analyzing-Students-Mental-Health-using-SQL :chart_with_downwards_trend:
 
-Does going to university in a different country affect your mental
-health? A Japanese international university surveyed its students in
+A Japanese international university surveyed its students in
 2018 and published a study the following year that was approved by
 several ethical and regulatory boards.
 
@@ -47,7 +46,19 @@ FROM students
 LIMIT 10;
 ```
 
-<img width="600" alt="Analysing students mental health 1" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/a9c8d686-1a54-4c89-922f-37d24d8780e1">
+|          | inter_dom | region  | gender | academic | age | age_cate | stay | stay_cate |
+|-------|-------|-------|--------|--------|--------|--------|--------|---------|
+| 0 | inter | SEA | Male | Grad | 24 | 4 | 5 | Long |
+| 1 | inter | SEA | Male | Grad | 28 | 5 | 1 | Short |
+| 2 | inter | SEA | Male | Grad | 25 | 4 | 6 | Long |
+| 3 | inter | EA | Female | Grad | 29 | 5 | 1 | Short |
+| 4 | inter | EA | Female | Grad | 28 | 5 | 1 | Short |
+| 5 | inter | SEA | Male | Grad | 24 | 4 | 6 | Long |
+| 6 | inter | SA | Male | Grad | 23 | 4 | 1 | Short |
+| 7 | inter | SEA | Female | Grad | 30 | 5 | 2 | Medium |
+| 8 | inter | SEA | Female | Grad | 25 | 4 | 4 | Long |
+| 9 | inter | Others | Male | Grad | 31 | 5 | 2 | Medium |
+
 
  #
 
@@ -61,7 +72,10 @@ SELECT COUNT(*) AS total_records,
 FROM students;
 ```
 
-<img width="600" alt="Analysing students mental health 2" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/09b99466-9d74-4658-9978-3ebec3e101a6">
+|          | total_records | count_inter_dom |
+|-------|-------|-------|
+| 0 | 286 | 286 |
+
 
  #
 
@@ -75,7 +89,19 @@ WHERE inter_dom = 'Dom'
 LIMIT 10;
 ```
 
-<img width="600" alt="Analysing students mental health 3" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/4f21b812-d29f-460b-9eaf-a70350fdc3b8">
+|          | inter_dom | region  | gender | academic | age | age_cate | stay | stay_cate |
+|-------|-------|-------|--------|--------|--------|--------|--------|---------|
+| 0 | Dom | JAP | Female | Grad | 24 | 4 | 5 | Long |
+| 1 | Dom | JAP | Female | Under | 28 | 5 | 1 | Short |
+| 2 | Dom | JAP | Female | Under | 25 | 4 | 6 | Long |
+| 3 | Dom | JAP | Male | Under | 29 | 5 | 1 | Short |
+| 4 | Dom | JAP | Female | Under | 28 | 5 | 1 | Short |
+| 5 | Dom | JAP | Male | Under | 24 | 4 | 6 | Long |
+| 6 | Dom | JAP | Female | Under | 23 | 4 | 1 | Short |
+| 7 | Dom | JAP | Female | Under | 30 | 5 | 2 | Medium |
+| 8 | Dom | JAP | Female | Under | 25 | 4 | 4 | Long |
+| 9 | Dom | JAP | Male | Under | 31 | 5 | 2 | Medium |
+
 
 ``` python
 SELECT *
@@ -84,7 +110,19 @@ WHERE inter_dom = 'Inter'
 LIMIT 10;
 ```
 
-<img width="600" alt="Analysing students mental health 4" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/da51e4ad-3335-4df4-8359-180b3b9d001f">
+|          | inter_dom | region  | gender | academic | age | age_cate | stay | stay_cate |
+|-------|-------|-------|--------|--------|--------|--------|--------|---------|
+| 0 | inter | SEA | Male | Grad | 24 | 4 | 5 | Long |
+| 1 | inter | SEA | Male | Grad | 28 | 5 | 1 | Short |
+| 2 | inter | SEA | Male | Grad | 25 | 4 | 6 | Long |
+| 3 | inter | EA | Female | Grad | 29 | 5 | 1 | Short |
+| 4 | inter | EA | Female | Grad | 28 | 5 | 1 | Short |
+| 5 | inter | SEA | Male | Grad | 24 | 4 | 6 | Long |
+| 6 | inter | SA | Male | Grad | 23 | 4 | 1 | Short |
+| 7 | inter | SEA | Female | Grad | 30 | 5 | 2 | Medium |
+| 8 | inter | SEA | Female | Grad | 25 | 4 | 4 | Long |
+| 9 | inter | Others | Male | Grad | 31 | 5 | 2 | Medium |
+
 
  #
 
@@ -104,7 +142,10 @@ SELECT MIN(todep) AS min_phq,
 FROM students;
 ```
 
-<img width="600" alt="Analysing students mental health 5" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/c16f14c3-3634-42bc-816b-84e3524f01e5">
+| min_phq | max_phq | avg_phq | min_scs | max_scs | avg_scs | min_as | max_as | avg_as |
+|-------|-------|-------|--------|--------|--------|--------|--------|---------|
+| 0 | 25 | 8.19 | 8 | 48 | 37.47 | 36 | 145 | 72.38 |
+
 
  #
 
@@ -125,7 +166,10 @@ WHERE inter_dom = 'Inter'
 GROUP BY inter_dom;
 ```
 
-<img width="600" alt="Analysing students mental health 6" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/5a945bfa-b4a6-4498-b67f-102296e03e91">
+| min_phq | max_phq | avg_phq | min_scs | max_scs | avg_scs | min_as | max_as | avg_as |
+|-------|-------|-------|--------|--------|--------|--------|--------|---------|
+| 0 | 25 | 8.04 | 11 | 48 | 37.42 | 36 | 145 | 75.56 |
+
 
  #
 
@@ -143,5 +187,15 @@ GROUP BY stay
 ORDER BY stay DESC;
 ```
 
-<img width="600" alt="Analysing students mental health 7" src="https://github.com/Marvykeys/Analyzing-Students-Mental-Health-using-SQL/assets/130637591/dfb88db8-6843-4279-874b-fcb94e227099">
+|          | stay | average_phq | average_scs | average_as |
+|-------|-------|-------|--------|--------|
+| 0 | 10 | 13 | 32 | 50 |
+| 1 | 8 | 10 | 44 | 65 |
+| 2 | 7 | 4 | 48 | 45 |
+| 3 | 6 | 6 | 38 | 58.67 |
+| 4 | 5 | 0 | 34 | 91 |
+| 5 | 4 | 8.57 | 33.93 | 87.71 |
+| 6 | 3 | 9.09 | 37.13 | 78 |
+| 7 | 2 | 8.28 | 37.08 | 77.67 |
+| 8 | 1 | 7.48 | 38.11 | 72.8 |
 
